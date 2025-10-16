@@ -1,0 +1,33 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowMFADeviceManagement",
+      "Effect": "Allow",
+      "Action": [
+        "iam:ListMFADevices",
+        "iam:CreateVirtualMFADevice",
+        "iam:EnableMFADevice",
+        "iam:DeactivateMFADevice",
+        "iam:DeleteVirtualMFADevice",
+        "iam:ResyncMFADevice"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowUserSelfActions",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GetUser",
+        "iam:GetLoginProfile",
+        "iam:ChangePassword",
+        "iam:GetAccountPasswordPolicy",
+        "iam:ListAccessKeys",
+        "iam:CreateAccessKey",
+        "iam:DeleteAccessKey",
+        "iam:UpdateAccessKey"
+      ],
+      "Resource": "arn:aws:iam::*:user/${aws:username}"
+    }
+  ]
+}
